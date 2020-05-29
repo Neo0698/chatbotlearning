@@ -2,7 +2,8 @@
 so what's a chatbot, a chatbot is simply a program that can understand what words are important in a phrase and know that for exemple if he sees "hello "and "how" and you" he need's to print("im find")
 <p></p>
 so how to do that
-<p></p>
+<p>in this document you will have how to use the fonction that will be used in the final code, the final code and some link to better understand</p>
+
 <h1>first step</h1>
 the first step is to know what the user says what does he type, for that we use the method  <b>input</b><p></p>
 for exemple<p></p>
