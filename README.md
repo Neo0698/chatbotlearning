@@ -55,6 +55,7 @@ if(hellof is not -1 and howf is not -1 and youf is not -1):#find if the variable
   
 ```
 
+
 some sources to help you on stack overflow<p></p>
-     <a href="https://stackoverflow.com/questions/3345202/getting-user-input">https://stackoverflow.com/questions/3345202/getting-user-input</a>
-     <a href="https://stackoverflow.com/questions/674764/examples-for-string-find-in-python">https://stackoverflow.com/questions/674764/examples-for-string-find-in-python</a>
+<a href="https://stackoverflow.com/questions/3345202/getting-user-input">https://stackoverflow.com/questions/3345202/getting-user-input</a>
+<a href="https://stackoverflow.com/questions/674764/examples-for-string-find-in-python">https://stackoverflow.com/questions/674764/examples-for-string-find-in-python</a>
