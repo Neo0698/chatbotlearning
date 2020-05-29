@@ -4,9 +4,9 @@ so what's a chatbot, a chatbot is simply a program that can understand what word
 so how to do that
 <p></p>
 <h1>first step</h1>
-the first step is to know what the user says what phrase to do that we will use the method <b>upper</b><p></p>
+the first step is to know what the user says what phrase to do that we will use the method <b>input</b><p></p>
 for exemple<p></p>
-question=upper("what is our question:")<p>
+question=input("what is our question:")<p>
 print(question)<p>
 <p></p>
 normally question is equal to the text that you type on the keyboard
@@ -32,15 +32,22 @@ if(question=="hello how are you"):<p>
   <p></p>
   <h1>this is the code</h1>
   <p></p>
-question=upper("what is our question:")<p>
+```
+question=input("what is our question:")<p>
 print(question)<p>
 hellof=str(question.lower()).find("hello")<p>
 howf=str(question.lower()).find("how")<p>
 youf=str(question.lower()).find("you")<p>
 if(hellof is not -1 and howf is not -1 and youf is not -1):<p>
     print("hello, im find and you")
+```
  <p></p>
+ ```
  know you know the fonctions<p>
   -find<p>
   -lower<p>
-  -upper<p>
+  -input<p>
+```
+some sources to help you on stack overflow<p></p>
+     <a href="https://stackoverflow.com/questions/3345202/getting-user-input">https://stackoverflow.com/questions/3345202/getting-user-input</a>
+     <a href="https://stackoverflow.com/questions/674764/examples-for-string-find-in-python">https://stackoverflow.com/questions/674764/examples-for-string-find-in-python</a>
