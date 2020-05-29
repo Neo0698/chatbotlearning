@@ -12,7 +12,7 @@ print(question)<p>
 normally question is equal to the text that you type on the keyboard
 <p></p>
 know we need to tell to the computer when the user ask this question answer this answer
-<p>to do that their is to methode</p>
+<p>to do that their is to option but the last one is better</p>
 the first one<p>
 
 ```
