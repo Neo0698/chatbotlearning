@@ -29,11 +29,13 @@ if(question=="hello how are you"):
   hellof=question.find("hello")<p>
   print(hellof)<p>
   <p></p>
-  you can see that when you put a phrase that have hello in it you can see a number that it's not -1 and when there is not hello in hit there is a number equel to -1 know we will use that for our chatbot
+  you can see that when you put a phrase that have hello in it you can see a number that it's not -1 and when there is not hello in hit there is a number equal to -1 know we will use that for our chatbot
   <p></p>
   <h1>this is the code final</h1>
   <p></p>
+
 ```
+
 question=input("what is our question:")#know what the user type
 print(question)#print what the user type
 hellof=str(question.lower()).find("hello")#find hello with the variable question in tiny
@@ -41,14 +43,18 @@ howf=str(question.lower()).find("how")#find how with the variable question in ti
 youf=str(question.lower()).find("you")find you with the variable question in tiny
 if(hellof is not -1 and howf is not -1 and youf is not -1):#find if the variable hellof and howf and youf is not -1
     print("hello, im find and you")# when hellof and howf and youf is not -1 print the answer
+
 ```
  <p></p>
  ```
+ 
  know you know the fonctions<p>
   -find<p>
   -lower<p>
   -input<p>
+  
 ```
+
 some sources to help you on stack overflow<p></p>
      <a href="https://stackoverflow.com/questions/3345202/getting-user-input">https://stackoverflow.com/questions/3345202/getting-user-input</a>
      <a href="https://stackoverflow.com/questions/674764/examples-for-string-find-in-python">https://stackoverflow.com/questions/674764/examples-for-string-find-in-python</a>
