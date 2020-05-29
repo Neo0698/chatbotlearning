@@ -45,10 +45,12 @@ if(hellof is not -1 and howf is not -1 and youf is not -1):#find if the variable
     print("hello, im find and you")# when hellof and howf and youf is not -1 print the answer
 
 ```
+
  <p></p>
+ 
  ```
  
- know you know the fonctions<p>
+ know you know the fonctions
   -find<p>
   -lower<p>
   -input<p>
