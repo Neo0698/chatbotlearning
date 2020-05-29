@@ -4,7 +4,7 @@ so what's a chatbot, a chatbot is simply a program that can understand what word
 so how to do that
 <p></p>
 <h1>first step</h1>
-the first step is to know what the user says what phrase to do that we will use the method <b>input</b><p></p>
+the first step is to know what the user says what does he type <b>input</b><p></p>
 for exemple<p></p>
 question=input("what is our question:")<p>
 print(question)<p>
