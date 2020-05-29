@@ -4,19 +4,19 @@ so what's a chatbot, a chatbot is simply a program that can understand what word
 so how to do that
 <p></p>
 <h1>first step</h1>
-the first step is to know what the user says what does he type <b>input</b><p></p>
+the first step is to know what the user says what does he type, for that we use the method  <b>input</b><p></p>
 for exemple<p></p>
 question=input("what is our question:")<p>
 print(question)<p>
 <p></p>
 normally question is equal to the text that you type on the keyboard
 <p></p>
-know we need to tell to the computer when the user ask this question answer this question
+know we need to tell to the computer when the user ask this question answer this answer
 <p>to do that their is to methode</p>
 the first one<p>
 
 ```
-if(question=="hello how are you"):<p>
+if(question=="hello how are you"):
          print("hello, im find thank you")
 ```
 
@@ -28,18 +28,18 @@ if(question=="hello how are you"):<p>
   hellof=question.find("hello")<p>
   print(hellof)<p>
   <p></p>
-  you can see that when you put a phrase that have hello in it you can see a number that it's not -1 and when there is no hello there is a number =-1 know we will use that for our chatbot
+  you can see that when you put a phrase that have hello in it you can see a number that it's not -1 and when there is not hello in hit there is a number equel to -1 know we will use that for our chatbot
   <p></p>
-  <h1>this is the code</h1>
+  <h1>this is the code final</h1>
   <p></p>
 ```
-question=input("what is our question:")<p>
-print(question)<p>
-hellof=str(question.lower()).find("hello")<p>
-howf=str(question.lower()).find("how")<p>
-youf=str(question.lower()).find("you")<p>
-if(hellof is not -1 and howf is not -1 and youf is not -1):<p>
-    print("hello, im find and you")
+question=input("what is our question:")#know what the user type
+print(question)#print what the user type
+hellof=str(question.lower()).find("hello")#find hello with the variable question in tiny
+howf=str(question.lower()).find("how")#find how with the variable question in tiny
+youf=str(question.lower()).find("you")find you with the variable question in tiny
+if(hellof is not -1 and howf is not -1 and youf is not -1):#find if the variable hellof and howf and youf is not -1
+    print("hello, im find and you")# when hellof and howf and youf is not -1 print the answer
 ```
  <p></p>
  ```
