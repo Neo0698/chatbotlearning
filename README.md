@@ -14,8 +14,12 @@ normally question is equal to the text that you type on the keyboard
 know we need to tell to the computer when the user ask this question answer this question
 <p>to do that their is to methode</p>
 the first one<p>
+
+```
 if(question=="hello how are you"):<p>
          print("hello, im find thank you")
+```
+
  <p></p>
  but their ise a better methode that it's with the fonction .find()
  <p>
