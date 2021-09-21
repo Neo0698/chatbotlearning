@@ -1,63 +1,133 @@
-# chatbotlearning
-so what's a chatbot, a chatbot is simply a program that can understand what words are important in a phrase and know that for exemple if he sees "hello "and "how" and you" he need's to print("im find")
-<p></p>
-so how to do that
-<p>in this document you will have how to use the fonction that will be used in the final code, the final code and some link to better understand</p>
 
-<h1>first step</h1>
-the first step is to know what the user says what does he type, for that we use the method  <b>input</b><p></p>
-for exemple<p></p>
-question=input("what is our question:")<p>
-print(question)<p>
-<p></p>
-normally question is equal to the text that you type on the keyboard
-<p></p>
-know we need to tell to the computer when the user ask this question answer this answer
-<p>to do that their is to option but the last one is better</p>
-the first one<p>
+a="" 
+import asyncio
+import websockets
+import ssl
+import random
+import moderateur
+async def hello(websocket, path):
+    a,group=str(await websocket.recv()).split("[group]")
+    a=a.lower()
+    print("____connection:"+a)
+    try:
+        with open("Answer_l.txt","r")as fic:
+            
+            Answer_l=fic.read().split(";")
+        with open("Question_l.txt","r")as fic:
+            
+            Question_l=fic.read().split(";")
+        with open("bad.txt","r")as fic:
+            bad=fic.read()
+        with open("good.txt","r")as fic:
+            good=fic.read()
+    except Exception as e:
+        print(e)    
+        Question_l=[]
+        Answer_l=[] 
+    print(Question_l)
+    finder=False
+    
+    I=0
+    re_data=[]
+    if(moderateur.main(a.replace("<message>",""),good,bad)=="good"):
+        if(a.find("<message>") !=-1 and a.find("<new>")==-1):
+            for el in Question_l:
+                i_word=0
+                
+                for word in a.replace("<message>","").split(" "):
+                    
+                    if(el.find(word) !=-1):
+                        i_word+=1
+                     
+                
+                if(el.find("["+group+"]")==-1):
+                    print(el)
+                    i_word=0
+                if(i_word/len(a.replace("<message>","").split(" "))>0.65):
+                    
+                    if(str(Question_l).find(Answer_l[I])!=-1):
+                        re_data.append(Answer_l[I])
+                    else:
+                        
+                        re_data.append("<new>"+Answer_l[I])
+                    finder=True
+                    print(I) 
+                I+=1
+            if(finder==False):
+                await websocket.send("<new>"+a)
+               
 
-```
-if(question=="hello how are you"):
-         print("hello, im find thank you")
-```
+        if(len(re_data) !=0):
+            if(len(re_data)==1):
+                await websocket.send(re_data[0])
+            else:
+                await websocket.send(random.choice(re_data))
+                
+        if(a.find("<new>") !=-1):
+             
+            finder=False
+            if(len(a.split(" "))<2):
+                 await websocket.send("<new>"+a.split("<new>")[1].split("[/]")[1])
+                 print(a) 
+                 b=a.split("<new>")[1].split("[/]")[1]
+                 print(b)
+                 with open("Question_l.txt","a")as fic:
+                     fic.write(a.split("<new>")[1].split("[/]")[0]+";")
+                 with open("Answer_l.txt","a")as fic:
+                     fic.write(b+";") 
+                 
+                 Answer_l.append(b)
+                 Question_l.append(a.split("<new>")[1].split("[/]")[0])
+                 I=0
+                 for el in Question_l:
+                    if(el.find(b)!=-1):
+                         
+                        await websocket.send(Answer_l[I])
+                        print("61")
+                        finder=True
+                        print(I) 
+                    I+=1
+              
+                 """
+                 with open("Question_l.txt","w")as fic:
+                     fic.write(a+";")
+                 with open("Answer_l.txt","w")as fic:
+                     fic.write(b+";")
+                 """
+            else:
+                 if(moderateur.main(a.split("<new>")[1].split("[/]")[1],good,bad)=="good"):
+                     await websocket.send("<new>"+a.split("<new>")[1].split("[/]")[1])
+                     print(a) 
+                     b=a.split("<new>")[1].split("[/]")[1]
+                     print(b)
+                     with open("Question_l.txt","a")as fic:
+                         fic.write(a.split("<new>")[1].split("[/]")[0]+"["+group+"]"+";")
+                     with open("Answer_l.txt","a")as fic:
+                         fic.write(b+";") 
+                     
+                     Answer_l.append(b)
+                     Question_l.append(a.split("<new>")[1].split("[/]")[0])
+                     I=0
+                     for el in Question_l:
+                        if(el.find(b)!=-1):
+                             
+                            await websocket.send(Answer_l[I])
+                            print("61")
+                            finder=True
+                            print(I) 
+                        I+=1
+            
+               
+    else:
+        await websocket.send("désolé je veux pas parler de ce sujet")   
+ssl_root="/etc/letsencrypt/live/youlink.ddns.net"
+ssl_ctx = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+ssl_ctx.load_cert_chain(ssl_root+"/fullchain.pem",
+                    ssl_root + "/privkey.pem")
+start_server = websockets.serve(hello, '', 8765,ssl=ssl_ctx)
 
- <p></p>
- but their ise a better methode that it's with the fonction .find()
- <p>
-  so for exemple with this code<p></p>
-  question=upper("what is our question:")<p>
-  hellof=question.find("hello")<p>
-  print(hellof)<p>
-  <p></p>
-  you can see that when you put a phrase that have hello in it you can see a number that it's not -1 and when there is not hello in hit there is a number equal to -1 know we will use that for our chatbot
-  <p></p>
-  <h1>this is the code final</h1>
-  <p></p>
-
-```
-
-question=input("what is our question:")#know what the user type
-print(question)#print what the user type
-hellof=str(question.lower()).find("hello")#find hello with the variable question in tiny
-howf=str(question.lower()).find("how")#find how with the variable question in tiny
-youf=str(question.lower()).find("you")find you with the variable question in tiny
-if(hellof is not -1 and howf is not -1 and youf is not -1):#find if the variable hellof and howf and youf is not -1
-    print("hello, im find and you")# when hellof and howf and youf is not -1 print the answer
-
-```
-
- <p></p>
- 
- ```
- 
- know you know the fonctions
-  -find<p>
-  -lower<p>
-  -input<p>
-  
-```
-
-
-some sources to help you on stack overflow<p></p>
-<a href="https://stackoverflow.com/questions/3345202/getting-user-input">https://stackoverflow.com/questions/3345202/getting-user-input</a>
-<a href="https://stackoverflow.com/questions/674764/examples-for-string-find-in-python">https://stackoverflow.com/questions/674764/examples-for-string-find-in-python</a>
+asyncio.get_event_loop().run_until_complete(start_server)
+asyncio.get_event_loop().run_forever()
+    
+    
+   
